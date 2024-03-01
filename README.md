@@ -2,6 +2,7 @@ As a skilled Cloud Solutions Architect and Automation Architect with extensive e
 
 ![hashicorp-certified-terraform-associate-003 (1)](https://github.com/mohang6770/mohang6770/assets/48823895/8607d740-e580-4cda-8f9a-d9071106ef92)
 ![hashicorp-certified-terraform-associate-002](https://user-images.githubusercontent.com/48823895/233696880-23dbd01f-5a5e-432b-9e67-3612cd2890e0.png)
+![cisco-certified-network-associate-routing-and-switching-ccna-routing-and-switching](https://github.com/mohang6770/mohang6770/assets/48823895/b40dff98-8e24-48eb-a7d0-38d5b9d41029)
 
 <!---
 mohang6770/mohang6770 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
