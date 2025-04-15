@@ -1,23 +1,25 @@
-name: Metrics
+name: GitHub Metrics
 on:
   # Schedule daily updates
   schedule: [{cron: "0 0 * * *"}]
-  # (optional) Run workflow manually
+  # Trigger on push to main branch
+  push:
+    branches: [ main ]
+  # Allow manual triggering
   workflow_dispatch:
+
 jobs:
-  github-metrics:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      # Checkout the repository first to ensure files can be modified
       - uses: actions/checkout@v3
-      # Generate the metrics using lowlighter/metrics
-      - uses: lowlighter/metrics@latest
+      - name: Generate Metrics
+        uses: lowlighter/metrics@latest
         with:
           filename: github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.METRICS_TOKEN }}
           committer_branch: main
           committer_message: Update metrics
-          config_timezone: UTC
