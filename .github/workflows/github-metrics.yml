@@ -31,30 +31,23 @@ jobs:
           output_action: commit
           skip_commit: ${{ startsWith(github.event.head_commit.message, 'Update metrics') }}
           
-          # Enable base settings for metrics display
-          base: header, activity, community, repositories, metadata
+          # Enable base settings for metrics display - focused on commits
+          base: header, activity, repositories, metadata
           base_indepth: yes
           
-          # Commit statistics with more detailed info
-          plugin_lines: yes
-          plugin_lines_sections: repositories, history
-          plugin_lines_repositories_limit: 10
-          plugin_lines_history_limit: 1000
+          # Activity plugin with commits focus - all time
+          plugin_activity: yes
+          plugin_activity_limit: 100
+          plugin_activity_days: 365  # Maximum days GitHub API allows
+          plugin_activity_filter: commits
+          plugin_activity_visibility: all
+          plugin_activity_timestamps: yes
           
-          # More accurate commit history
-          plugin_contributors: yes
-          plugin_contributors_sections: repositories, organizations
-          plugin_contributors_contributions: yes
+          # Show languages
+          plugin_languages: yes
+          plugin_languages_sections: most-used, recently-used
+          plugin_languages_details: bytes-size, percentage
           
-          # Remove the isocalendar and replace with more detailed stats
-          plugin_habits: yes
-          plugin_habits_from: 1000
-          plugin_habits_days: 30
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          
-          # Add contributions section showing lifetime contributions
-          plugin_notable: yes
-          plugin_notable_from: all
-          plugin_notable_repositories: yes
+          # Add stargazers
+          plugin_stargazers: yes
 
