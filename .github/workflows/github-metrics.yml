@@ -1,7 +1,7 @@
 name: Metrics
 on:
   # Schedule daily updates
-  schedule: [{cron: "0 0 * * *"}]
+  schedule: [{cron: "0 4 * * *"}]
   # (optional) Run workflow manually
   workflow_dispatch:
 jobs:
@@ -12,4 +12,19 @@ jobs:
     steps:
       - uses: lowlighter/metrics@latest
         with:
+          # Your GitHub token
           token: ${{ secrets.METRICS_TOKEN }}
+          
+          # Options
+          user: mohang6770
+          template: classic
+          base: header, activity, community, repositories, metadata
+          filename: github-metrics.svg
+          
+          # Display stats on your GitHub activities
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_activity_days: 100
+          
+          # Set timezone
+          config_timezone: Europe/London
