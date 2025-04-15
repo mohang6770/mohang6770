@@ -30,4 +30,22 @@ jobs:
           committer_gemail: action@github.com
           output_action: commit
           skip_commit: ${{ startsWith(github.event.head_commit.message, 'Update metrics') }}
+          
+          # Enable base settings for metrics display
+          base: header, activity, community, repositories
+          
+          # Add lines of code changed and commit counts
+          plugin_lines: yes
+          plugin_lines_sections: base
+          plugin_lines_history: yes
+          plugin_lines_repositories_limit: 10
+          
+          # Add isometric commit calendar for all available history
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          
+          # Add contributions section showing lifetime contributions
+          plugin_notable: yes
+          plugin_notable_from: all
+          plugin_notable_repositories: yes
 
