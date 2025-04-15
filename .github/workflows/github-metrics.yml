@@ -40,6 +40,14 @@ jobs:
           plugin_lines_history: yes
           plugin_lines_repositories_limit: 10
           
+          # Enhanced commit tracking 
+          plugin_activity: yes
+          plugin_activity_limit: 100
+          plugin_activity_days: 0
+          plugin_activity_filter: all
+          plugin_activity_visibility: all
+          plugin_activity_timestamps: yes
+          
           # Add isometric commit calendar for all available history
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
