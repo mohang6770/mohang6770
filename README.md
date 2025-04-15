@@ -8,3 +8,4 @@ As a seasoned Cloud Operations, Solutions, and Automation Architect, I bring ext
 mohang6770/mohang6770 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.https://github.com/mohang6770/mohang6770/blob/main/README.md
 --->
+<img src="/github-metrics.svg" alt="Metrics" width="100%">
