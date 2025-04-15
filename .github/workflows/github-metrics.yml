@@ -36,8 +36,7 @@ jobs:
           plugin_activity: yes
           plugin_activity_limit: 100
           plugin_activity_days: 365  # Maximum days GitHub API allows
-          plugin_activity_filter: all
-          
+          plugin_activity_type: commits          
           # Add configuration for display
           config_display: medium
           config_timezone: Europe/London
