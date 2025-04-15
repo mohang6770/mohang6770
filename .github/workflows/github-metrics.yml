@@ -1,43 +1,15 @@
-name: GitHub Metrics
+name: Metrics
 on:
-  # Schedule to run every 2 hours
-  schedule: [{cron: "0 */2 * * *"}]
-  # Allow manual triggering
+  # Schedule daily updates
+  schedule: [{cron: "0 0 * * *"}]
+  # (optional) Run workflow manually
   workflow_dispatch:
-  # Trigger on push to main branch but ignore commits from the metrics bot
-  push:
-    branches: [ main ]
-    paths-ignore:
-      - 'github-metrics.svg'
-
 jobs:
-  build:
+  github-metrics:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-      - name: Generate Metrics
-        uses: lowlighter/metrics@latest
+      - uses: lowlighter/metrics@latest
         with:
-          # Basic settings
-          filename: github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.METRICS_TOKEN }}
-          committer_branch: main
-          committer_message: "Update metrics [Skip GitHub Action]"
-          output_action: commit
-          
-          # Enable base settings for metrics display - focused on commits
-          base: header, activity, repositories, metadata
-          base_indepth: yes
-          
-          # Activity plugin with commits focus - all time
-          plugin_activity: yes
-          plugin_activity_limit: 100
-          plugin_activity_days: 365  # Maximum days GitHub API allows
-          plugin_activity_type: commits          
-          # Add configuration for display
-          config_display: medium
-          config_timezone: Europe/London
-          config_padding: 10%
