@@ -1,12 +1,14 @@
 name: GitHub Metrics
 on:
-  # Schedule daily updates
-  schedule: [{cron: "0 0 * * *"}]
-  # Trigger on push to main branch
-  push:
-    branches: [ main ]
+  # Schedule to run every 2 hours
+  schedule: [{cron: "0 */2 * * *"}]
   # Allow manual triggering
   workflow_dispatch:
+  # Trigger on push to main branch but ignore commits from the metrics bot
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'github-metrics.svg'
 
 jobs:
   build:
@@ -22,4 +24,8 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.METRICS_TOKEN }}
           committer_branch: main
-          committer_message: Update metrics
+          committer_message: "Update metrics [Skip GitHub Action]"
+          committer_gname: GitHub Action
+          committer_gemail: action@github.com
+          output_action: commit
+          skip_commit: ${{ startsWith(github.event.head_commit.message, 'Update metrics') }}
