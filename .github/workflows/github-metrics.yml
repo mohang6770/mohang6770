@@ -31,7 +31,4 @@ jobs:
           output_action: commit
           skip_commit: ${{ startsWith(github.event.head_commit.message, 'Update metrics') }}
           
-          # Enable base settings for metrics display - focused on commits
-          base: header, activity, repositories, metadata
-          base_indepth: yes
-          
+         
