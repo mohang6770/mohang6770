@@ -35,3 +35,10 @@ jobs:
           base: header, activity, repositories, metadata
           base_indepth: yes
           
+          # Activity plugin with commits focus - all time
+          plugin_activity: yes
+          plugin_activity_limit: 100
+          plugin_activity_days: 365  # Maximum days GitHub API allows
+          plugin_activity_filter: commits
+          plugin_activity_visibility: all
+          plugin_activity_layout: compact
