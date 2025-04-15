@@ -1,6 +1,8 @@
 name: Metrics
 on:
+  # Schedule daily updates
   schedule: [{cron: "0 0 * * *"}]
+  # (optional) Run workflow manually
   workflow_dispatch:
 jobs:
   github-metrics:
@@ -8,6 +10,14 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Checkout the repository first to ensure files can be modified
+      - uses: actions/checkout@v3
+      # Generate the metrics using lowlighter/metrics
       - uses: lowlighter/metrics@latest
         with:
+          filename: github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.METRICS_TOKEN }}
+          committer_branch: main
+          committer_message: Update metrics
+          config_timezone: UTC
