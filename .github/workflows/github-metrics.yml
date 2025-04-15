@@ -30,4 +30,4 @@ jobs:
           committer_gemail: action@github.com
           output_action: commit
           skip_commit: ${{ startsWith(github.event.head_commit.message, 'Update metrics') }}
-          
+
