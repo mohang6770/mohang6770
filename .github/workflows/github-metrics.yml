@@ -20,6 +20,7 @@ jobs:
       - name: Generate Metrics
         uses: lowlighter/metrics@latest
         with:
+          # Basic settings
           filename: github-metrics.svg
           token: ${{ secrets.METRICS_TOKEN }}
           committer_token: ${{ secrets.METRICS_TOKEN }}
@@ -29,3 +30,42 @@ jobs:
           committer_gemail: action@github.com
           output_action: commit
           skip_commit: ${{ startsWith(github.event.head_commit.message, 'Update metrics') }}
+          
+          # Enable enhanced settings
+          base: header, activity, community, repositories, metadata
+          config_timezone: Asia/Kolkata
+          config_display: columns
+          config_animations: true
+          
+          # Isometric commit calendar
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+          
+          # Most used languages
+          plugin_languages: yes
+          plugin_languages_ignored: css, html
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          
+          # Notable contributions
+          plugin_notable: yes
+          plugin_notable_repositories: yes
+          plugin_notable_indepth: yes
+          
+          # Activity stats
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_activity_days: 14
+          plugin_activity_filter: all
+          
+          # Repository section
+          plugin_repositories: yes
+          plugin_repositories_featured: 4
+          
+          # GitHub achievements
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_threshold: B
+          
+          # Add a gist section
+          plugin_gists: yes
