@@ -33,7 +33,7 @@ jobs:
           
           # Enable enhanced settings
           base: header, activity, community, repositories, metadata
-          config_timezone: Asia/Kolkata
+          config_timezone: Europe/London
           config_display: columns
           config_animations: true
           
@@ -69,3 +69,47 @@ jobs:
           
           # Add a gist section
           plugin_gists: yes
+          
+          # Habits plugin to show coding habits
+          plugin_habits: yes
+          plugin_habits_from: 200       # Use 200 events to compute habits
+          plugin_habits_days: 14        # Use events from last 14 days
+          plugin_habits_facts: yes      # Display facts section
+          plugin_habits_charts: yes     # Display charts section
+          plugin_habits_trim: yes       # Trim unused hours on daily chart
+          
+          # Add skyline 3D calendar visualization
+          plugin_skyline: yes
+          plugin_skyline_year: current-year
+          plugin_skyline_frames: 60
+          plugin_skyline_quality: 0.5
+          
+          # Lines of code changed
+          plugin_lines: yes
+          plugin_lines_sections: base
+          plugin_lines_repositories_limit: 4
+          
+          # Follow-up of issues and pull requests
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+          
+          # Add stargazers over time chart
+          plugin_stargazers: yes
+          
+          # Topics section based on starred repositories
+          plugin_topics: yes
+          plugin_topics_sort: stars
+          plugin_topics_limit: 15
+          
+          # Add a music section showing recently played tracks
+          plugin_music: yes
+          plugin_music_provider: spotify
+          plugin_music_token: ${{ secrets.SPOTIFY_TOKEN }}
+          plugin_music_mode: recent
+          plugin_music_limit: 5
+          
+          # Add last tweets
+          plugin_tweets: yes
+          plugin_tweets_token: ${{ secrets.TWITTER_TOKEN }}
+          plugin_tweets_user: yourusername
+          plugin_tweets_limit: 2
